@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Menu from "./components/menu.js"
 import Header from "./components/header.js"
+import Card from "./components/card.js"
 import ReactDOM from 'react-dom';
 
 //export default blir import 'funktion' from "./src/components/menu.js"
@@ -15,7 +16,8 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
           <Header />
-          <Menu/>
+          <Menu />
+          <Card name="Nike" price="2000 :-" Price="10 :-"/>
           {/* <Menu1/>
           <Menu2/> */}
         </p>
@@ -33,19 +35,19 @@ function App() {
 }
 
 
-const users = {
+// const users = {
   
-  firstName: "Shawn",
-  lastName: "Örnerstedt",
+//   firstName: "Shawn",
+//   lastName: "Örnerstedt",
   
-};
+// };
 
-function formatName(users) {
-  return users.firstName + " " + users.lastName;
-}
+// function formatName(users) {
+//   return users.firstName + " " + users.lastName;
+// }
 
-const element = <h1> Hello, {formatName(users)}!</h1>;
+// const element = <h1> Hello, {formatName(users)}!</h1>;
 
-ReactDOM.render(element, document.getElementById('root'));
+// ReactDOM.render(element, document.getElementById('root'));
 
 export default App;
