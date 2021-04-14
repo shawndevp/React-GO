@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import {Menu, Menu1, Menu2} from "./components/menu.js"
+import Menu from "./components/menu.js"
+import Header from "./components/header.js"
 import ReactDOM from 'react-dom';
 
 //export default blir import 'funktion' from "./src/components/menu.js"
@@ -13,9 +14,10 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
+          <Header />
           <Menu/>
-          <Menu1/>
-          <Menu2/>
+          {/* <Menu1/>
+          <Menu2/> */}
         </p>
         <a
           className="App-link"
