@@ -4,6 +4,7 @@ import Menu from "./components/menu.js"
 import Header from "./components/header.js"
 import Card from "./components/card.js"
 import ReactDOM from 'react-dom';
+import Form from "./components/form";
 
 //export default blir import 'funktion' from "./src/components/menu.js"
 // inte default blir -> import {Menu, Menu2} from "./components/menu.js"
@@ -12,23 +13,14 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
           <Header />
           <Menu />
           <Card name="Nike" price="2000 :-" Price="10 :-"/>
+          <Form />
           {/* <Menu1/>
           <Menu2/> */}
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+
       </header>
     </div>
   );

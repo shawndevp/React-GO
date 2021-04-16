@@ -18,6 +18,7 @@ function Card(props) {
 
         <div>{counter}</div>
 
+
         <div>
             <p>price: {props.price}</p>
             <p>Price: {props.Price}</p>
