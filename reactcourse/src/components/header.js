@@ -14,12 +14,13 @@ function Header() {
 
     return (
         <>
-        <BrowserRouter>
+        <Router>
 
+        <Link to="/home">Home</Link>
         <Route path="/home" exact component={Card} />
+        {/* Allt efter -> / är vad man vill ha till extern länk och visas. ex. /home */}
 
-
-        </BrowserRouter>
+        </Router>
         <Menu />
         <Card price ="headerpris = 500" Price ="headerpris = 250 stort P" name="test headernamn"/>
         </>
