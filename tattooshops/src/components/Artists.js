@@ -1,7 +1,7 @@
 import React from "react";
 import people from "./logos/people.jpeg";
 
-function Artister() {
+function Artists({artistName, price}) {
   return (
     <>
       <div class="flex flex-wrap mx-66">
@@ -57,8 +57,10 @@ function Artister() {
           <p class="leading-none">Since 2000</p>
         </div>
       </div>
+
+      <div>test: {artistName} </div>
     </>
   );
 }
 
-export default Artister;
+export default Artists;
