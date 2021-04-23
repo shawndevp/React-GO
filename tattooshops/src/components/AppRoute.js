@@ -1,7 +1,8 @@
 import React from "react";
 import Header from "./Header";
 import Menu from "./Menu";
-import Test from "./Test";
+import Artister from "./Artister";
+import Login from "./Login";
 
 import {
     BrowserRouter as Router,
@@ -15,10 +16,11 @@ import {
   function AppRoute() {
       return (
         <>
-        <Test/>
         <Router>
+        <Header/>
         <Route path="/" exact component={Menu}/>
-        <Route path="/" exact component={Header}/>
+        <Route path="/Artister" exact component={Artister}/>
+        <Route path="/Login" exact component={Login}/>
         </Router>
 
     
