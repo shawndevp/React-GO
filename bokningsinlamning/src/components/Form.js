@@ -9,14 +9,18 @@ function Form () {
             productName: " ",
             price: " "
         }
-        const [formValues, setFormValues] = useState()
+        const [formValues, setFormValues] = useState(initialValues)
 
-       function onHandleSubmit() {
+       function onHandleSubmit(e) {
+        e.preventDefault();
+
+        console.log(formValues)
+        //ska skickas till databas / api endpoint
 
         }
 
-        function onHandleChange() {
-
+        function onHandleChange(e) {
+            setFormValues({...formValues, [e.target.name]: e.target.value})
         }
 
     return (
@@ -29,6 +33,7 @@ function Form () {
             <input value={formValues.productName} name="productName" onChange={onHandleChange} />
             <input type="number" name="price" value={formValues.price} onChange={onHandleChange}/>
             <buttton>Lägg till</buttton>
+            <div>Du har inte behörighet</div>
 
         </form>
 
