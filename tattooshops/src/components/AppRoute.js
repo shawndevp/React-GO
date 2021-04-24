@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Menu from "./Menu";
 import Artists from "./Artists";
+import ArtistsList from "./ArtistsList";
 import Login from "./Login";
 
 import {
@@ -19,7 +20,7 @@ import {
         <Router>
         <Header/>
         <Route path="/" exact component={Menu}/>
-        <Route path="/Artists" exact component={Artists}/>
+        <Route path="/Artists" exact component={Artists, ArtistsList}/>
         <Route path="/Login" exact component={Login}/>
         </Router>
 
