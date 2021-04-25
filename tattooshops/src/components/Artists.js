@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import people from "./logos/people.jpeg";
 
-function Artists({artistName, price}) {
-  console.log(artistName, price)
+function Artists({id, artistName, price}) {
   return (
     <>
 
-    <div>test: {artistName} </div>
-      <div>test: {price} </div>
 
-      <div className="flex flex-wrap mx-66">
+      <div className="flex flex-nowrap mx-66">
         <div className="bg-white overflow-hidden border-b-4 border-blue-500 w-1/3">
           <img src={people} alt="People" className="w-full object-contain h-48" />
           <div className="p-4 md:p-6" />
@@ -17,7 +14,7 @@ function Artists({artistName, price}) {
             {artistName}
           </p>
           <h3 className="font-semibold mb-2 text-xl leading-tight sm:leading-normal">
-            Good At:
+            {price}
           </h3>
           <div className="text-sm flex items-center" />
           <p className="leading-none">Since 2000</p>
@@ -30,7 +27,7 @@ function Artists({artistName, price}) {
             {artistName}
           </p>
           <h3 className="font-semibold mb-2 text-xl leading-tight sm:leading-normal">
-            Good At:
+            {id}
           </h3>
           <div className="text-sm flex items-center" />
           <p className="leading-none">Since 2000</p>

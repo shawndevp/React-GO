@@ -6,7 +6,7 @@ function Menu() {
 
     return (
         <>
-        
+        <p>HELLO</p>
     
         </>
     )

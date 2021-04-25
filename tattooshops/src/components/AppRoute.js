@@ -20,7 +20,7 @@ import {
         <Router>
         <Header/>
         <Route path="/" exact component={Menu}/>
-        <Route path="/Artists" exact component={Artists, ArtistsList}/>
+        <Route path="/Artists" exact component={ArtistsList}/>
         <Route path="/Login" exact component={Login}/>
         </Router>
 

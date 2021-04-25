@@ -8,7 +8,7 @@ function Header() {
 <nav className="flex items-center justify-between flex-wrap bg-teal p-6">
   <div className="flex items-center flex-no-shrink text-black mr-6">
     <img src={logo} width="54" height="54" />
-    <span className="font-semibold text-4xl tracking-tight">Art's Ink</span>
+    <span className="font-semibold text-4xl tracking-tight">LOGONAME</span>
   </div>
   <div className="block lg:hidden">
     <button className="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-black hover:border-black">

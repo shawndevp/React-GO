@@ -2,22 +2,22 @@ import React from "react";
 import Artists from "./Artists";
 
 const booking = [
-  { artistName: "Sven Svensson", price: "5000kr" },
-  { artistName: "Karl Svensson", price: "6000kr" },
-  { artistName: "Test Svensson", price: "7000kr" }
+  { id: 0, artistName: "Sven Svensson", price: "5000kr" },
+  { id: 1, artistName: "Karl Svensson", price: "6000kr" },
+  { id: 2, artistName: "Test Svensson", price: "7000kr" }
 ];
 
 function ArtistsList() {
   return (
     <div>
-      {booking.map((test) => {
-        return (
+      {booking.map((artist) => (
           <Artists
-            artistName={test.artistName}
-            price={test.price}
+            key={artist.id}
+            id={artist.id}
+            artistName={artist.artistName}
+            price={artist.price}
           />
-        );
-      })}
+      ))}
     </div>
   );
 }
