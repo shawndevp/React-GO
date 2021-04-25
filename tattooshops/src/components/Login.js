@@ -71,7 +71,7 @@ function Login() {
               />
             </div>
             <div className="flex items-center justify-between">
-            <Link to ="/test">
+            <Link to ="/register">
               <button
                 className="px-4 py-2 rounded text-white inline-block shadow-lg bg-blue-500 hover:bg-blue-600 focus:bg-blue-700"
                 type="submit"
@@ -85,6 +85,9 @@ function Login() {
               >
                 Forgot Password?
               </a>
+              <Link to="/register"
+                className="inline-block align-baseline font-normal text-sm text-blue-500 hover:text-blue-800"
+                href="#">Register here</Link>
             </div>
           </form>
           <p className="text-center text-gray-500 text-xs"></p>
