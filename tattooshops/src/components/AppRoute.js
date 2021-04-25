@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "./Header";
 import Menu from "./Menu";
-import Artists from "./Artists";
 import ArtistsList from "./ArtistsList";
 import Login from "./Login";
 import Register from "./Register";
