@@ -22,4 +22,6 @@ function ArtistsList() {
   );
 }
 
+/*{HELLOOO}*/
+
 export default ArtistsList;
