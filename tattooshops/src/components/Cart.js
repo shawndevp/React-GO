@@ -1,15 +1,15 @@
 import React from 'react'
 import people from "./logos/people.jpeg"
 
-function Cart(artistName, price) {
+function Cart() {
     return (
         <>
 <div class="w-screen h-screen flex justify-center items-center">
   <div class="container mx-auto max-w-sm w-full p-4 sm:w-1/2">
     <div class="card flex flex-col justify-center p-10 bg-white rounded-lg shadow-2xl">
       <div class="prod-title">
-        <p class="text-2xl uppercase text-gray-900 font-bold">{artistName}</p>
-        <p class="uppercase text-sm text-gray-400">test
+        <p class="text-2xl uppercase text-gray-900 font-bold">Sven</p>
+        <p class="uppercase text-sm text-gray-400">Oriental specialist
         </p>
       </div>
       <div class="prod-img">

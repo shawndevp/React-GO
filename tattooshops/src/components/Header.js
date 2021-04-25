@@ -9,7 +9,7 @@ function Header() {
   <div className="flex items-center flex-no-shrink text-black mr-6">
     <img src={logo} width="54" height="54" />
     <Link to="/">
-    <span className="font-semibold text-4xl tracking-tight">LOGONAME</span>
+    <span className="font-semibold text-4xl tracking-tight">INK Station</span>
     </Link>
   </div>
   <div className="block lg:hidden">

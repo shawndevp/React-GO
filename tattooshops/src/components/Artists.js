@@ -5,7 +5,6 @@ function Artists({id, artistName, price}) {
   return (
     <>
 
-
       <div className="flex flex-nowrap mx-66">
         <div className="bg-white overflow-hidden border-b-4 border-blue-500 w-1/3">
           <img src={people} alt="People" className="w-full object-contain h-48" />
