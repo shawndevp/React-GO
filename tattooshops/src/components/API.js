@@ -1,26 +1,54 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from "axios";
 
 function API() {
 
-    async function FetchData(){
-        //async await behövs för det tar dit för data att komma in
+    const [data, setData] = useState([]);
 
+    useEffect( ()=> {
 
-      const response = await axios.get("https://jsonplaceholder.typicode.com/todos/1")
+        const FetchData = async()=> {
+            const response = await axios.get("https://jsonplaceholder.typicode.com/todos/")
+            console.log(response.data)
+            const res = response.data
 
-      console.log(response)
+            setData(res)
 
-
-    }
+        }
+        FetchData()
+    }, [] )
 
     return (
-        <div>
-            {/*Bad practice, just testing*/}
-            <button onClick={FetchData}>Click here to see data</button><br></br><br></br>
-            Detta är API
-        </div>
+        <>
+
+        {data.map( (singleData)=> {return <h1 key={singleData.userId}>{singleData.title}</h1>} )}
+        <div>hello</div>
+
+        </>
     )
 }
 
 export default API
+
+
+
+// export default API
+
+// Varje gång staten uppdateras renderas din component. Fetch triggas av responsen
+// Varje gång component renderas körs useEffect
+
+// state -> component-> useEffect
+
+// useEffect kan ha en default value, som kan triggas av att någon data/state ändras.
+// Default value kan vara en eller flera state. Om state ändras triggas useEffect.
+// useEffect kan ha en return / unmount. 
+
+// I class component går regeln så mycket som nedan
+// state-> render/component -> componentDidMount -> componentWillUnmount
+
+// Varingar att komma ihåg: Nr 1. useEffect( ()=> { } ) om man använder denna komma ens component
+// inte veta när den ska trigga useEffect :: Oändlig "Loop"
+
+// Nr 2. useEffect ( ()=> { }, [data] ) : [data] är en state som uppdateras av fetchData() :: Oändlig "Loop"
+
+// Lösning -> useEffect( ()=> { }, [] )
