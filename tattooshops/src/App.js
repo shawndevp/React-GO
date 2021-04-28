@@ -6,9 +6,9 @@ import people from "./components/logos/people.jpeg"
 function App() {
   return (
     <div className="App">
-      <img src={people}/>
-     {/* <Approute/> */}
-     <API/>
+      {/* <img src={people}/> */}
+     <Approute/>
+     {/* {<API/>} */}
     </div>
   );
 }
