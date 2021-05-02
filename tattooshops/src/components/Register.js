@@ -10,13 +10,27 @@ function Register() {
 
       const response = await axios.post("http://localhost:1337/auth/local/register", {
       username: "user",
-      email: "user@mail.com",
-      password: "strapiPass",
+      email: "user@strapi.io",
+      password: "strapiPassword",
     });
     console.log(response)
 }
 
-    registerUser()
+    //registerUser()
+
+    const loginUser = async()=> {
+
+    const res = await axios .post('http://localhost:1337/auth/local', {
+    identifier: 'user@strapi.io',
+    password: 'strapiPassword',
+  });
+  console.log("login response", res)
+
+    loginUser();
+
+    }
+
+    // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjE5OTcyMzA5LCJleHAiOjE2MjI1NjQzMDl9.bIOKdZ78rlXqCbDov48O1aeRt_Ie45_BFAzxTMl9c_k"
 
   }, []);
 
