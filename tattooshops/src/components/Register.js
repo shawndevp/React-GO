@@ -4,18 +4,32 @@ import axios from "axios"
 
 function Register() {
 
+    const initialValue = {
+        email: " ",
+        password: ""
+    }
+
+    const [registerValues, setRegisterValues] = useState(initialValue)
+
+    function handleOnChange(e) {
+        setRegisterValues({...registerValues, [e.target.name]: e.target.value})
+    }
+
+    function handleOnSubmit(e) {
+        e.preventDefault()
+
+        console.log(registerValues.email, registerValues.password)
+    }
 
   useEffect(() => {
     const registerUser= async()=>{
 
       const response = await axios.post("http://localhost:1337/auth/local/register", {
-      username: "user",
-      email: "user@strapi.io",
-      password: "strapiPassword",
+      email: registerValues.email,
+      password: registerValues.password,
     });
     console.log(response)
 }
-
     //registerUser()
 
     const loginUser = async()=> {
@@ -25,10 +39,9 @@ function Register() {
     password: 'strapiPassword',
   });
   console.log("login response", res)
-
+}
     loginUser();
 
-    }
 
     // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjE5OTcyMzA5LCJleHAiOjE2MjI1NjQzMDl9.bIOKdZ78rlXqCbDov48O1aeRt_Ie45_BFAzxTMl9c_k"
 
@@ -39,7 +52,7 @@ function Register() {
       <div className="flex items-center justify-center">
         <div className="w-full max-w-md">
           <form
-            /* onSubmit={handleOnSubmit} */ className="bg-white shadow-lg rounded px-12 pt-6 pb-8 mb-4"
+            onSubmit={handleOnSubmit} className="bg-white shadow-lg rounded px-12 pt-6 pb-8 mb-4"
           >
             <div className="text-gray-800 text-2xl flex justify-center border-b-2 py-2 mb-4">
               Register
@@ -59,8 +72,8 @@ function Register() {
                 required
                 autofocus
                 placeholder="Email"
-                /*                 value={formValues.email}
-                onChange={handleOnChange} */
+                value={registerValues.email}
+                onChange={handleOnChange} 
               />
             </div>
             <div className="mb-6">
@@ -78,19 +91,17 @@ function Register() {
                 name="password"
                 required
                 autocomplete="current-password"
-                /*                 value={formValues.password}
-                onChange={handleOnChange} */
+                value={registerValues.password}
+                onChange={handleOnChange}
               />
             </div>
             <div className="flex items-center justify-between">
-              <Link to="/register">
                 <button
                   className="px-4 py-2 rounded text-white inline-block shadow-lg bg-blue-500 hover:bg-blue-600 focus:bg-blue-700"
                   type="submit"
                 >
                   Submit
                 </button>
-              </Link>
               <a
                 className="inline-block align-baseline font-normal text-sm text-blue-500 hover:text-blue-800"
                 href="#"
