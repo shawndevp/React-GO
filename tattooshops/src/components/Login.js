@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {Link} from "react-router-dom";
+import axios from "axios";
 
 const isAdmin=true;
 
@@ -14,6 +15,19 @@ function Login() {
 
   function handleOnSubmit(e) {
       e.preventDefault();
+    axios.post('http://localhost:1337/auth/local', {
+    identifier: formValues.email,
+    password: formValues.password,
+  }).then(response => {
+    // Handle success.
+    console.log('Well done!');
+    console.log('User profile', response.data.user);
+    console.log('User token', response.data.jwt);
+    console.log("user data", response.data)
+  }).catch((err)=> {
+       console.log(err.response);
+  })
+
   }
 
   function handleOnChange(e) {
@@ -28,7 +42,7 @@ function Login() {
     {isAdmin &&(
       <div className="flex items-center justify-center">
         <div className="w-full max-w-md">
-          <form onSubmit={handleOnSubmit} className="bg-white shadow-lg rounded px-12 pt-6 pb-8 mb-4">
+          <form onSubmit={handleOnSubmit} method="POST" className="bg-white shadow-lg rounded px-12 pt-6 pb-8 mb-4">
             <div className="text-gray-800 text-2xl flex justify-center border-b-2 py-2 mb-4">
               Login
             </div>
@@ -71,14 +85,12 @@ function Login() {
               />
             </div>
             <div className="flex items-center justify-between">
-            <Link to ="/register">
               <button
                 className="px-4 py-2 rounded text-white inline-block shadow-lg bg-blue-500 hover:bg-blue-600 focus:bg-blue-700"
                 type="submit"
               >
                 Sign In
               </button>
-              </Link>
               <a
                 className="inline-block align-baseline font-normal text-sm text-blue-500 hover:text-blue-800"
                 href="#"
