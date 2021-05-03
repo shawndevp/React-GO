@@ -11,7 +11,10 @@ function Login() {
       password:""
   }
 
-  const[formValues, setFormValues] = useState(initialValues)
+  const [formValues, setFormValues] = useState(initialValues);
+  const [error, setError] = useState("");
+  const [authenticated, setAuthenticated] = useState(false);
+  const [username, setUsername] = useState("");
 
   function handleOnSubmit(e) {
       e.preventDefault();
@@ -23,9 +26,14 @@ function Login() {
     console.log('Well done!');
     console.log('User profile', response.data.user);
     console.log('User token', response.data.jwt);
-    console.log("user data", response.data)
+    console.log("user data", response.data);
+    setUsername(response.data.user.username)
+    setAuthenticated(true);
   }).catch((err)=> {
        console.log(err.response);
+
+       setError("Stämmer inte")
+
   })
 
   }
@@ -39,13 +47,14 @@ function Login() {
 
   return (
     <>
-    {isAdmin &&(
+    {authenticated ? <div>Welcome {username}</div>:
       <div className="flex items-center justify-center">
         <div className="w-full max-w-md">
           <form onSubmit={handleOnSubmit} method="POST" className="bg-white shadow-lg rounded px-12 pt-6 pb-8 mb-4">
             <div className="text-gray-800 text-2xl flex justify-center border-b-2 py-2 mb-4">
               Login
             </div>
+            <h1>{error}</h1>
             <div className="mb-4">
               <label
                 className="block text-gray-700 text-sm font-normal mb-2"
@@ -104,7 +113,7 @@ function Login() {
           </form>
           <p className="text-center text-gray-500 text-xs"></p>
         </div>
-      </div> )}
+      </div> }
     </>
   );
 }
