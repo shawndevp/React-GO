@@ -12,6 +12,7 @@ function Register() {
   const [registerValues, setRegisterValues] = useState(initialValue);
   const [email, setEmail] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
+  const [error, setError] = useState("");
 
   function handleOnChange(e) {
     setRegisterValues({ ...registerValues, [e.target.name]: e.target.value });
@@ -25,7 +26,7 @@ function Register() {
         password: registerValues.password,
       })
       .then( (e)=> { if(e.data.user) setLoggedIn(true) })
-      .catch((err)=> {console.log(err.response)})
+      .catch((err)=> {setError(err.response.data.message[0].messages[0].message)})
   }
 
 /*   useEffect(() => {
@@ -68,7 +69,8 @@ function Register() {
               <div className="text-gray-800 text-2xl flex justify-center border-b-2 py-2 mb-4">
                 Register
               </div>
-              <div className="mb-4">
+              <div className="text-red-700">{error}</div>
+              <div className="mb-4"><br/>
                 <label
                   className="block text-gray-700 text-sm font-normal mb-2"
                   for="username"

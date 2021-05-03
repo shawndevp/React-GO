@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import {Link} from "react-router-dom";
 import axios from "axios";
 
-const isAdmin=true;
-
 function Login() {
 
   const initialValues = {
@@ -32,7 +30,7 @@ function Login() {
   }).catch((err)=> {
        console.log(err.response);
 
-       setError("Stämmer inte")
+       setError(err.response.data.message[0].messages[0].message)
 
   })
 
@@ -54,8 +52,8 @@ function Login() {
             <div className="text-gray-800 text-2xl flex justify-center border-b-2 py-2 mb-4">
               Login
             </div>
-            <h1>{error}</h1>
-            <div className="mb-4">
+            <div className="text-red-700">{error}</div>
+            <div className="mb-4"><br/>
               <label
                 className="block text-gray-700 text-sm font-normal mb-2"
                 for="username"
