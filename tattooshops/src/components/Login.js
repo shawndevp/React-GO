@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import {useHistory} from "react-router-dom";
 import {Link} from "react-router-dom";
 import axios from "axios";
 
@@ -11,8 +12,10 @@ function Login() {
 
   const [formValues, setFormValues] = useState(initialValues);
   const [error, setError] = useState("");
-  const [authenticated, setAuthenticated] = useState(false);
+  //const [authenticated, setAuthenticated] = useState(false);
   const [username, setUsername] = useState("");
+  const [jwt, setJwt] = useState();
+  const history = useHistory();
 
   function handleOnSubmit(e) {
       e.preventDefault();
@@ -24,9 +27,13 @@ function Login() {
     console.log('Well done!');
     console.log('User profile', response.data.user);
     console.log('User token', response.data.jwt);
+    localStorage.setItem("jwt", response.data.jwt);
+    history.push("/Artists")
+
     console.log("user data", response.data);
     setUsername(response.data.user.username)
-    setAuthenticated(true);
+    //setAuthenticated(true);
+
   }).catch((err)=> {
        console.log(err.response);
 
@@ -41,11 +48,14 @@ function Login() {
    
 }
 
-
+useEffect( ()=>{
+     const JWT = localStorage.getItem("jwt")
+     setJwt(JWT);
+},[])
 
   return (
     <>
-    {authenticated ? <div>Welcome {username}</div>:
+    {jwt ? <div>Welcome {username} {jwt}</div>:
       <div className="flex items-center justify-center">
         <div className="w-full max-w-md">
           <form onSubmit={handleOnSubmit} method="POST" className="bg-white shadow-lg rounded px-12 pt-6 pb-8 mb-4">

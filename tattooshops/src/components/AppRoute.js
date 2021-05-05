@@ -5,6 +5,7 @@ import ArtistsList from "./ArtistsList";
 import Login from "./Login";
 import Register from "./Register";
 import Cart from "./Cart";
+import AddtoArtists from "./AddToArtists";
 
 import {
     BrowserRouter as Router,
@@ -25,6 +26,8 @@ import {
         <Route path="/Login" exact component={Login}/>
         <Route path="/Register" exact component={Register}/>
         <Route path="/Boka" exact component={Cart}/>
+        <Route path="/AddToArtists" exact component={AddtoArtists}/>
+        
         </Router>
 
     

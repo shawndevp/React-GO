@@ -1,18 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+  useHistory,
+  useLocation
+} from "react-router-dom";
 
 function Register() {
   const initialValue = {
     username: "",
-    email: " ",
-    password: "",
+    email: "",
+    password: ""
   };
 
   const [registerValues, setRegisterValues] = useState(initialValue);
   const [email, setEmail] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   const [error, setError] = useState("");
+  const history = useHistory();
 
   function handleOnChange(e) {
     setRegisterValues({ ...registerValues, [e.target.name]: e.target.value });
@@ -25,7 +34,9 @@ function Register() {
         email: registerValues.email,
         password: registerValues.password,
       })
-      .then( (e)=> { if(e.data.user) setLoggedIn(true) })
+      .then( (e)=> { if(e.data.user) history.push("/login") /* setLoggedIn(true) */
+      
+      })
       .catch((err)=> {setError(err.response.data.message[0].messages[0].message)})
   }
 
@@ -84,7 +95,7 @@ function Register() {
                   type="username"
                   required
                   autofocus
-                  placeholder="username"
+                  placeholder="Username"
                   value={registerValues.username}
                   onChange={handleOnChange}
                 />

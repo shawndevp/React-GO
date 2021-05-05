@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from "./logos/logo.jpg";
 import {Link} from "react-router-dom";
 
 function Header() {
+
+  const [jwt, setJwt] = useState("")
+  
+  useEffect ( ()=>{
+        
+
+    const JWT = localStorage.getItem("jwt");
+
+    setJwt(JWT)
+
+},[])
+
     return (
         <>
 <nav className="flex items-center justify-between flex-wrap bg-teal p-6">
