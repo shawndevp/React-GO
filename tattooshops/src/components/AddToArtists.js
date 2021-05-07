@@ -7,10 +7,26 @@ const initialValues = {
     name:"",
     price:0,
     description:"",
-    img: []
 }
 
-const [formValues, setFormValues] = useState(initialValues)
+const [formValues, setFormValues] = useState(initialValues);
+const [fileData, setFileData] = useState();
+
+function handleOnFile(e) {
+  setFileData(e.target.files[0])
+}
+
+async function UploadFile(e) {
+    e.preventDefault();
+    console.log(fileData)
+
+    const data = new FormData()
+    data.append("files", fileData)
+
+   const res = axios.post("http://localhost:1337/upload",data) 
+   console.log(res)
+
+}
 
 
 function handleOnChange(e) {
@@ -20,11 +36,13 @@ function handleOnChange(e) {
 function handleOnSubmit(e) {
     e.preventDefault();
 
+    const formData = new FormData()
+    formData.append("files", fileData)
+
     axios.post("http://localhost:1337/Artists", {
         name:formValues.name,
         price:formValues.price,
         description:formValues.description,
-        img:formValues.img
 
     }).then( (res)=> {
         console.log(res.data)
@@ -38,7 +56,10 @@ function handleOnSubmit(e) {
            <div className="flex items-center justify-center">
           <div className="w-full max-w-md">
             <form
-              onSubmit={handleOnSubmit}
+              onSubmit= {()=> {
+                handleOnSubmit();
+                UploadFile();
+              }}
               method="POST"
               className="bg-white shadow-lg rounded px-12 pt-6 pb-8 mb-4"
             >
@@ -110,7 +131,7 @@ function handleOnSubmit(e) {
             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
         </svg>
         <span class="mt-2 text-base leading-normal">Upload image</span>
-        <input type='file' name="files" class="hidden" value={formValues.img} onChange={handleOnChange}/>
+        <input type='file' name="file" class="hidden" onChange={handleOnFile}/>
     </label>
 </div><br/>
               <div className="flex items-center justify-between">

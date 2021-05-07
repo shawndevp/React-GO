@@ -4,16 +4,20 @@ import {Link} from "react-router-dom";
 
 function Header() {
 
-  const [jwt, setJwt] = useState("")
+  const [jwt, setJwt] = useState((localStorage.getItem("jwt")))
   
   useEffect ( ()=>{
         
-
     const JWT = localStorage.getItem("jwt");
 
     setJwt(JWT)
 
 },[])
+
+function clearLocalStorage() {
+  localStorage.clear();
+  window.location.reload();
+}
 
     return (
         <>
@@ -38,7 +42,8 @@ function Header() {
     </div>
     <div class="space-x-5">
     <Link to="/Bokningar" className="inline-block text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0">Bokningar</Link>
-      <Link to="/Login" className="inline-block text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0">Login</Link>
+      {/* <Link to="/Login" className="inline-block text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0">Login</Link> */}
+      <button className="inline-block text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" onClick={clearLocalStorage}>Logout</button>
     </div>
   </div>
 </nav>

@@ -108,12 +108,12 @@ useEffect( ()=>{
               >
                 Sign In
               </button>
-              <a
+              <Link to="/forgotpassword"
                 className="inline-block align-baseline font-normal text-sm text-blue-500 hover:text-blue-800"
                 href="#"
               >
                 Forgot Password?
-              </a>
+              </Link>
               <Link to="/register"
                 className="inline-block align-baseline font-normal text-sm text-blue-500 hover:text-blue-800"
                 href="#">Register here</Link>
