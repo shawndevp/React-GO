@@ -11,23 +11,11 @@ const initialValues = {
 
 const [formValues, setFormValues] = useState(initialValues);
 const [fileData, setFileData] = useState();
+const [success, setSuccess] = useState("");
 
 function handleOnFile(e) {
   setFileData(e.target.files[0])
 }
-
-async function UploadFile(e) {
-    e.preventDefault();
-    console.log(fileData)
-
-    const data = new FormData()
-    data.append("files", fileData)
-
-   const res = axios.post("http://localhost:1337/upload",data) 
-   console.log(res)
-
-}
-
 
 function handleOnChange(e) {
     setFormValues({...formValues, [e.target.name]:e.target.value})
@@ -42,13 +30,33 @@ function handleOnSubmit(e) {
     axios.post("http://localhost:1337/Artists", {
         name:formValues.name,
         price:formValues.price,
-        description:formValues.description,
+        description:formValues.description
 
     }).then( (res)=> {
         console.log(res.data)
-    }).catch( (err)=> {
+
+        const data = new FormData();
+        data.append("files", fileData)
+
+        data.append("ref", "artist")
+        
+        data.append("refId", res.data.id)
+
+        data.append("field", "img")
+
+        axios.post("http://localhost:1337/upload",data)
+        .then( (image)=> console.log(image))
+        
+    })
+    .catch( (succ)=> {
+      setSuccess(succ.request.statusText())
+  })
+    
+    .catch( (err)=> {
         console.log(err)
     })
+
+
 }
 
     return (
@@ -56,10 +64,7 @@ function handleOnSubmit(e) {
            <div className="flex items-center justify-center">
           <div className="w-full max-w-md">
             <form
-              onSubmit= {()=> {
-                handleOnSubmit();
-                UploadFile();
-              }}
+              onSubmit= {handleOnSubmit}
               method="POST"
               className="bg-white shadow-lg rounded px-12 pt-6 pb-8 mb-4"
             >
@@ -67,6 +72,7 @@ function handleOnSubmit(e) {
                 Add Artists
               </div>
               <div className="text-red-700">{/* error */}</div>
+              <div className="text-red-700">{success}</div>
               <div className="mb-4"><br/>
                 <label
                   className="block text-gray-700 text-sm font-normal mb-2"
