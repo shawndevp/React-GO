@@ -1,47 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-/* import axios from "axios" */
+import axios from "axios"
 import ReactDOM from "react-dom";
 import Modal from "react-modal";
 import people from "./logos/people.jpeg";
+import ModalComponent from "./Modal";
 
 function Artists({ name, price, description, img }) {
   
-  const customStyles = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-    },
-  };
-
-  const initialValues = {
-    name: "",
-    timeToAppointment: "",
-    mobile: null,
-  };
-
-  const [modalIsOpen, setIsOpen] = useState(false);
-  const [formValues, setFormValues] = useState(initialValues);
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  function onHandleChange(e) {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value });
-  }
-
-  function onHandleSubmit(e) {
-    e.preventDefault();
-  }
 
   return (
     <>
@@ -91,42 +57,8 @@ function Artists({ name, price, description, img }) {
             </div>
             <div className="flex item-center justify-between mt-3">
               <h1 className="text-gray-700 font-bold text-xl">{price}kr</h1>
+              <ModalComponent/>
               {/*               <Link to= "/Boka"> */}
-              <button onclick={openModal} className="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">
-                BOKA
-              </button>
-              {/*               </Link> */}
-              <Modal
-                isOpen={modalIsOpen}
-                onRequestClose={closeModal}
-                style={customStyles}
-                contentLabel="Example Modal"
-              >
-                {/* <h2 ref={_subtitle => (subtitle = _subtitle)}>Hello</h2> */}
-                <button onClick={closeModal}>close</button>
-                <div>I am a modal</div>
-                <form onSubmit={onHandleSubmit}>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formValues.name}
-                    onChange={onHandleChange}
-                  />
-                  <input
-                    type="text"
-                    name="timeToAppointment"
-                    value={formValues.timeToAppointment}
-                    onChange={onHandleChange}
-                  />
-                  <input
-                    type="number"
-                    name="mobile"
-                    value={formValues.mobile}
-                    onChange={onHandleChange}
-                  />
-                  <button type="submit">Send</button>
-                </form>
-              </Modal>
             </div>
           </div>
         </div>

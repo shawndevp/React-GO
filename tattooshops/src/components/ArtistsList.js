@@ -26,19 +26,32 @@ function ArtistsList() {
 function ArtistsList() {
 
   const [products, setProduct] = useState([]);
+  const [loadPage, setLoadPage] = useState(2);
 
   useEffect(()=> {
 
     const fetchProducts = async()=>{
-      const response = await axios.get("http://localhost:1337/Artists");
+      const response = await axios.get(`http://localhost:1337/Artists?_limit=${loadPage}`);
       console.log(response)
 
       setProduct(response.data)
     }
 
     fetchProducts()
-  }, [] )
+  }, [loadPage] )
 
+
+  function loadMore() {
+
+    let dynamicPage = loadPage + 2;
+    console.log("load more", loadPage)
+    setLoadPage(dynamicPage)
+    console.log(loadPage)
+  }
+
+  function showLess() {
+    setLoadPage(2)
+  }
 
   return (
     <>
@@ -52,6 +65,10 @@ function ArtistsList() {
             img={artist.img}
           />
       ))}
+
+
+      <button onClick={loadMore}>Load more</button><br/>
+      <button onClick={showLess}>Show less</button>
     </>
   )
 }

@@ -40,7 +40,7 @@ function clearLocalStorage() {
     <Link to="/Boka" className="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-black">Boka</Link>
 
     </div>
-    <div class="space-x-5">
+    <div className="space-x-5">
     <Link to="/Bokningar" className="inline-block text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0">Bokningar</Link>
       {/* <Link to="/Login" className="inline-block text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0">Login</Link> */}
       <button className="inline-block text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" onClick={clearLocalStorage}>Logout</button>
