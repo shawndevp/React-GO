@@ -58,7 +58,7 @@ function ArtistsList() {
       {products.map((artist) => (
           <Artists
             key={artist.id}
-            id={artist.id}
+            artistId={artist.id}
             name={artist.name}
             price={artist.price}
             description={artist.description}

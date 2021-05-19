@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Modal from "react-modal";
 import axios from "axios";
 
-function ModalComponent() {
+function ModalComponent({artistId,}) {
 
     const customStyles = {
         content: {
@@ -24,6 +24,14 @@ function ModalComponent() {
       const [modalIsOpen, setIsOpen] = useState(false);
       const [formValues, setFormValues] = useState(initialValues);
       const [bookedArtist, setBookedArtist] = useState();
+      const [userId, setUserId] = useState(null);
+
+      useEffect( ()=> {
+        const userId = localStorage.getItem("userId")
+        //console.log(userId)
+        setUserId(userId)
+      }, [])
+
     
       function openModal(e) {
         setBookedArtist(e.target.parentNode.previousSibling.previousSibling.previousSibling.innerHTML)  
@@ -45,8 +53,8 @@ function ModalComponent() {
           name:formValues.name,
           time:formValues.time,
           mobile:Number(formValues.mobile),
-          userId:"",
-          artistId:
+          userId: 7,
+          artistId: 1
         })
 
         console.log(response)
@@ -76,7 +84,7 @@ function ModalComponent() {
                     onChange={onHandleChange}
                   />
                   <input
-                    type="text"
+                    type="number"
                     name="time"
                     value={formValues.time}
                     onChange={onHandleChange}
