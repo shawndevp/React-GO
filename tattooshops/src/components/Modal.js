@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import Modal from "react-modal";
+import axios from "axios";
 
 function ModalComponent() {
 
@@ -16,7 +17,7 @@ function ModalComponent() {
     
       const initialValues = {
         name: "",
-        timeToAppointment: "",
+        time: "",
         mobile: null,
       };
     
@@ -37,8 +38,19 @@ function ModalComponent() {
         setFormValues({ ...formValues, [e.target.name]: e.target.value });
       }
     
-      function onHandleSubmit(e) {
+     async function onHandleSubmit(e) {
         e.preventDefault();
+
+        const response = await axios.post("http://localhost:1337/bookings", {
+          name:formValues.name,
+          time:formValues.time,
+          mobile:Number(formValues.mobile),
+          userId:"",
+          artistId:
+        })
+
+        console.log(response)
+
       }
 
     return (
@@ -55,7 +67,7 @@ function ModalComponent() {
               >
                 {/* <h2 ref={_subtitle => (subtitle = _subtitle)}>Hello</h2> */}
                 <button onClick={closeModal}>close</button>
-                <div>Du har bokat {bookedArtist}</div>
+                <div>Du väljer att boka {bookedArtist}</div>
                 <form onSubmit={onHandleSubmit}>
                   <input
                     type="text"
@@ -65,8 +77,8 @@ function ModalComponent() {
                   />
                   <input
                     type="text"
-                    name="timeToAppointment"
-                    value={formValues.timeToAppointment}
+                    name="time"
+                    value={formValues.time}
                     onChange={onHandleChange}
                   />
                   <input

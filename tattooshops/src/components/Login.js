@@ -28,6 +28,7 @@ function Login() {
     console.log('User profile', response.data.user);
     console.log('User token', response.data.jwt);
     localStorage.setItem("jwt", response.data.jwt);
+    localStorage.setItem("userInfo", response.data.user)
     history.push("/Artists")
 
     console.log("user data", response.data);
