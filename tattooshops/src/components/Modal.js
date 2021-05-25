@@ -81,28 +81,44 @@ function ModalComponent({artistId,}) {
                 contentLabel="Example Modal"
               >
                 {/* <h2 ref={_subtitle => (subtitle = _subtitle)}>Hello</h2> */}
-                <button onClick={closeModal}>close</button>
-                <div>Du väljer att boka {bookedArtist}</div>
+                <div className="text-red-500">
+                <button onClick={closeModal}>CLOSE</button>
+                </div><br/>
+                <div>You're currently about to book {bookedArtist}</div><br/>
+                <div className="flex justify-around text-black font-black">
+                  <h1>Name</h1>
+                  <h1>Time</h1>
+                  <h1>Mobile</h1>
+                </div>
                 <form onSubmit={onHandleSubmit}>
                   <input
+                    className="placeholder-gray-500 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="yourname"
                     type="text"
                     name="name"
                     value={formValues.name}
                     onChange={onHandleChange}
+                    required
                   />
                   <input
+                    className="placeholder-gray-500 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="14:00 etc"
                     type="number"
                     name="time"
                     value={formValues.time}
                     onChange={onHandleChange}
+                    required
                   />
                   <input
+                    className="placeholder-gray-500 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="071-2345678"
                     type="number"
                     name="mobile"
                     value={formValues.mobile}
                     onChange={onHandleChange}
+                    required
                   />
+                  <br/>
+                  <br/><div className="flex justify-end text-green-500">
                   <button type="submit">Send</button>
+                  </div>
                 </form>
               </Modal>  
         </>

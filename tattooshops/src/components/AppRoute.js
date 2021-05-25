@@ -8,7 +8,6 @@ import Cart from "./Cart";
 import AddtoArtists from "./AddToArtists";
 import ForgotPassword from "./ForgotPassword";
 import ResetPassword from "./ResetPassword";
-import Parent from "./Parent"
 import Bookings from "./Bookings";
 
 import {
@@ -33,7 +32,6 @@ import {
         <Route path="/AddToArtists" exact component={AddtoArtists}/>
         <Route path="/resetpassword" exact component={ResetPassword}/>
         <Route path="/forgotpassword" exact component={ForgotPassword}/>
-        <Route path="/parent" exact component={Parent}/>
         <Route path="/Bookings" exact component={Bookings}/>
         
         </Router>

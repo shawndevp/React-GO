@@ -29,7 +29,7 @@ function Bookings() {
 
     return (
         <div>
-            <h1>Mina bokningar</h1>
+            <h1>Mina bokningar</h1><br></br>
 
             {bookings.map( (booking)=>{
 

@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 
 function Header() {
 
+  const [isLoggedin, setIsLoggedin] = useState(true);
   const [jwt, setJwt] = useState((localStorage.getItem("jwt")))
   
   useEffect ( ()=>{
@@ -42,8 +43,10 @@ function clearLocalStorage() {
     </div>
     <div className="space-x-5">
     <Link to="/Bookings" className="inline-block text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0">Bookings</Link>
-      {/* <Link to="/Login" className="inline-block text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0">Login</Link> */}
-      <button className="inline-block text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" onClick={clearLocalStorage}>Logout</button>
+    { isLoggedin && jwt?
+    <button className="inline-block text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0" onClick={clearLocalStorage}>Logout</button>
+      : <Link to="/Login" className="inline-block text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0">Login</Link>
+      }
     </div>
   </div>
 </nav>
