@@ -24,13 +24,14 @@ function ModalComponent({artistId,}) {
       const [modalIsOpen, setIsOpen] = useState(false);
       const [formValues, setFormValues] = useState(initialValues);
       const [bookedArtist, setBookedArtist] = useState();
-      const [userId, setUserId] = useState(null);
+      const [userId, setUserId] = useState(localStorage.getItem("userId"));
+      const [token, setToken] = useState(localStorage.getItem("jwt"))
 
-      useEffect( ()=> {
+     /*  useEffect( ()=> {
         const userId = localStorage.getItem("userId")
         //console.log(userId)
         setUserId(userId)
-      }, [])
+      }, []) */
 
     
       function openModal(e) {
@@ -53,9 +54,15 @@ function ModalComponent({artistId,}) {
           name:formValues.name,
           time:formValues.time,
           mobile:Number(formValues.mobile),
-          userId: 7,
-          artistId: 1
-        })
+          users_permissions_user:userId
+        },
+        {
+          headers: {
+           Authorization:
+             `Bearer ${token}`,
+         },
+       }
+        )
 
         console.log(response)
 

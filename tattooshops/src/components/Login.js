@@ -29,7 +29,7 @@ function Login() {
     console.log('User token', response.data.jwt);
     localStorage.setItem("jwt", response.data.jwt);
     localStorage.setItem("userId", response.data.user.id)
-    localStorage.setItem("userEmail", response.data.user.email)
+    localStorage.setItem("username", response.data.user.username)
     history.push("/Artists")
 
     console.log("user data", response.data);
