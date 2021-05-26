@@ -7,7 +7,7 @@ function Menu() {
   return (
     <>
       <div className="bg-light-blue-300 ...">
-        <img src={logo} className="object-cover h-full w-full" />
+        <img src={logo} className="object-cover h-full w-full" alt="logotype" />
       </div>
 
       <footer className="bg-gray-800 pt-10 sm:mt-10 pt-10">
@@ -20,9 +20,9 @@ function Menu() {
             </div>
 
 
-            <a href="#" className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
+            <Link to="#" className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
                 Lorem ipsum
-            </a>
+            </Link>
         </div>
 
 
@@ -32,9 +32,9 @@ function Menu() {
                 Rad 2
             </div>
 
-            <a href="#" className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
+            <Link to="#" className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
             Lorem ipsum
-            </a>
+            </Link>
         </div>
 
         <div className="p-5 w-1/2 sm:w-4/12 md:w-3/12">
@@ -43,9 +43,9 @@ function Menu() {
                 Rad 3
             </div>
 
-            <a href="#" className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
+            <Link to="#" className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
             Lorem ipsum
-            </a>
+            </Link>
         </div>
 
 
@@ -55,9 +55,9 @@ function Menu() {
                 Rad 4
             </div>
 
-            <a href="#" className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
+            <Link to="#" className="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
             Lorem ipsum
-            </a>
+            </Link>
         </div>
     </div>
 

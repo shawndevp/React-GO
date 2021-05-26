@@ -76,7 +76,6 @@ function handleOnSubmit(e) {
               <div className="mb-4"><br/>
                 <label
                   className="block text-gray-700 text-sm font-normal mb-2"
-                  for="name"
                 >
                   Name
                 </label>
@@ -86,7 +85,6 @@ function handleOnSubmit(e) {
                   v-model="form.name"
                   type="text"
                   required
-                  autofocus
                   placeholder="Name"
                   value={formValues.name}
                   onChange={handleOnChange}
@@ -95,7 +93,6 @@ function handleOnSubmit(e) {
               <div className="mb-4">
                 <label
                   className="block text-gray-700 text-sm font-normal mb-2"
-                  for="username"
                 >
                   Price
                 </label>
@@ -105,7 +102,6 @@ function handleOnSubmit(e) {
                   v-model="form.price"
                   type="number"
                   required
-                  autofocus
                   placeholder="Price"
                   value={formValues.price}
                   onChange={handleOnChange}
@@ -114,7 +110,6 @@ function handleOnSubmit(e) {
               <div className="mb-6">
                 <label
                   className="block text-gray-700 text-sm font-normal mb-2"
-                  for="description"
                 >
                   Description
                 </label>
@@ -125,19 +120,18 @@ function handleOnSubmit(e) {
                   placeholder="Description"
                   name="description"
                   required
-                  autocomplete="current-description"
                   value={formValues.description}
                   onChange={handleOnChange}
                 />
               </div>
               Image
-              <div class="flex items-center justify-center bg-grey-lighter">
-    <label class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue">
-        <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <div className="flex items-center justify-center bg-grey-lighter">
+    <label className="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue">
+        <svg className="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
         </svg>
-        <span class="mt-2 text-base leading-normal">Upload image</span>
-        <input type='file' name="file" class="hidden" onChange={handleOnFile}/>
+        <span className="mt-2 text-base leading-normal">Upload image</span>
+        <input type='file' name="file" className="hidden" onChange={handleOnFile}/>
     </label>
 </div><br/>
               <div className="flex items-center justify-between">

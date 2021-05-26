@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 function Header() {
 
-  const [isLoggedin, setIsLoggedin] = useState(true);
+  const [isLoggedin] = useState(true);
   const [jwt, setJwt] = useState((localStorage.getItem("jwt")))
   
   useEffect ( ()=>{
@@ -24,7 +24,7 @@ function clearLocalStorage() {
         <>
 <nav className="flex items-center justify-between flex-wrap bg-teal p-6">
   <div className="flex items-center flex-no-shrink text-black mr-6">
-    <img src={logo} width="54" height="54" />
+    <img src={logo} width="54" height="54" alt="logotype" />
     <Link to="/">
     <span className="font-semibold text-4xl tracking-tight">INK Station</span>
     </Link>

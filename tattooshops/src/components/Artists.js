@@ -1,9 +1,4 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios"
-import ReactDOM from "react-dom";
-import Modal from "react-modal";
-import people from "./logos/people.jpeg";
+import React from "react";
 import ModalComponent from "./Modal";
 
 function Artists({ name, price, description, img }) {
@@ -58,7 +53,6 @@ function Artists({ name, price, description, img }) {
             <div className="flex item-center justify-between mt-3">
               <h1 className="text-gray-700 font-bold text-xl">{price}kr</h1>
               <ModalComponent/>
-              {/*               <Link to= "/Boka"> */}
             </div>
           </div>
         </div>

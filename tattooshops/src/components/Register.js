@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect,
   useHistory,
-  useLocation
+  Link
 } from "react-router-dom";
 
 function Register() {
@@ -18,8 +14,7 @@ function Register() {
   };
 
   const [registerValues, setRegisterValues] = useState(initialValue);
-  const [email, setEmail] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn] = useState(false);
   const [error, setError] = useState("");
   const history = useHistory();
 
@@ -84,7 +79,6 @@ function Register() {
               <div className="mb-4"><br/>
                 <label
                   className="block text-gray-700 text-sm font-normal mb-2"
-                  for="username"
                 >
                   Username
                 </label>
@@ -94,7 +88,6 @@ function Register() {
                   v-model="form.username"
                   type="username"
                   required
-                  autofocus
                   placeholder="Username"
                   value={registerValues.username}
                   onChange={handleOnChange}
@@ -103,7 +96,6 @@ function Register() {
               <div className="mb-4">
                 <label
                   className="block text-gray-700 text-sm font-normal mb-2"
-                  for="username"
                 >
                   Email
                 </label>
@@ -113,7 +105,6 @@ function Register() {
                   v-model="form.email"
                   type="email"
                   required
-                  autofocus
                   placeholder="Email"
                   value={registerValues.email}
                   onChange={handleOnChange}
@@ -122,7 +113,6 @@ function Register() {
               <div className="mb-6">
                 <label
                   className="block text-gray-700 text-sm font-normal mb-2"
-                  for="password"
                 >
                   Password
                 </label>
@@ -133,7 +123,6 @@ function Register() {
                   placeholder="Password"
                   name="password"
                   required
-                  autocomplete="current-password"
                   value={registerValues.password}
                   onChange={handleOnChange}
                 />
@@ -145,12 +134,13 @@ function Register() {
                 >
                   Submit
                 </button>
-                <a
+                <Link
+                  to="#"
                   className="inline-block align-baseline font-normal text-sm text-blue-500 hover:text-blue-800"
                   href="#"
                 >
                   Forgot Password?
-                </a>
+                </Link>
               </div>
             </form>
             <p className="text-center text-gray-500 text-xs"></p>

@@ -68,7 +68,6 @@ useEffect( ()=>{
             <div className="mb-4"><br/>
               <label
                 className="block text-gray-700 text-sm font-normal mb-2"
-                for="username"
               >
                 Email
               </label>
@@ -78,7 +77,6 @@ useEffect( ()=>{
                 v-model="form.email"
                 type="email"
                 required
-                autofocus
                 placeholder="Email"
                 value={formValues.email}
                 onChange={handleOnChange}
@@ -87,7 +85,6 @@ useEffect( ()=>{
             <div className="mb-6">
               <label
                 className="block text-gray-700 text-sm font-normal mb-2"
-                for="password"
               >
                 Password
               </label>
@@ -98,7 +95,6 @@ useEffect( ()=>{
                 placeholder="Password"
                 name="password"
                 required
-                autocomplete="current-password"
                 value={formValues.password}
                 onChange={handleOnChange}
               />

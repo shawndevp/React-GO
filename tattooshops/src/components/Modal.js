@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import Modal from "react-modal";
 import axios from "axios";
 
@@ -24,8 +24,8 @@ function ModalComponent({artistId,}) {
       const [modalIsOpen, setIsOpen] = useState(false);
       const [formValues, setFormValues] = useState(initialValues);
       const [bookedArtist, setBookedArtist] = useState();
-      const [userId, setUserId] = useState(localStorage.getItem("userId"));
-      const [token, setToken] = useState(localStorage.getItem("jwt"))
+      const [userId] = useState(localStorage.getItem("userId"));
+      const [token] = useState(localStorage.getItem("jwt"))
 
      /*  useEffect( ()=> {
         const userId = localStorage.getItem("userId")

@@ -12,10 +12,7 @@ import Bookings from "./Bookings";
 
 import {
     BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    BrowserRouter
+    Route
   } from "react-router-dom";
 
 
