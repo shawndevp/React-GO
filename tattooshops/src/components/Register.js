@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import {
-  BrowserRouter as Router,
   useHistory,
   Link
 } from "react-router-dom";
@@ -29,36 +28,11 @@ function Register() {
         email: registerValues.email,
         password: registerValues.password,
       })
-      .then( (e)=> { if(e.data.user) history.push("/login") /* setLoggedIn(true) */
+      .then( (e)=> { if(e.data.user) history.push("/login")
       
       })
       .catch((err)=> {setError(err.response.data.message[0].messages[0].message)})
   }
-
-/*   useEffect(() => {
-    const registerUser = async () => {
-      const response = await axios.post(
-        "http://localhost:1337/auth/local/register",
-        {
-          email: registerValues.email,
-          password: registerValues.password,
-        }
-      );
-      console.log(response);
-    };
-    registerUser()
-
-    const loginUser = async () => {
-      const res = await axios.post("http://localhost:1337/auth/local", {
-        identifier: "user@strapi.io",
-        password: "strapiPassword",
-      });
-      console.log("login response", res);
-    };
-    loginUser();
-
-    // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjE5OTcyMzA5LCJleHAiOjE2MjI1NjQzMDl9.bIOKdZ78rlXqCbDov48O1aeRt_Ie45_BFAzxTMl9c_k"
-  }, []); */
 
   return (
     <>

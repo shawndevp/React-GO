@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Modal from "react-modal";
 import axios from "axios";
 
-function ModalComponent({name}) {
+function ModalComponent() {
 
     const customStyles = {
         content: {
@@ -68,7 +68,6 @@ function ModalComponent({name}) {
          },
        }
         )
-
         console.log(response)
 
       }
@@ -78,14 +77,12 @@ function ModalComponent({name}) {
                 <button onClick={openModal} className="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">
                 BOKA
               </button>
-              {/*               </Link> */}
               <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
                 style={customStyles}
                 contentLabel="Example Modal"
               >
-                {/* <h2 ref={_subtitle => (subtitle = _subtitle)}>Hello</h2> */}
                 <div className="text-red-500">
                 <button onClick={closeModal}>CLOSE</button>
                 </div><br/>

@@ -29,12 +29,12 @@ function Bookings() {
 
     return (
         <div>
-            <h1>Mina bokningar</h1><br></br>
+            <h1>My bookings</h1><br></br>
 
             {bookings.map( (booking)=>{
 
 return(
-<BookingsList key={booking.id} name={booking.name} time={booking.time} />
+<BookingsList key={booking.id} name={booking.name} time={booking.time} mobile={booking.mobile} artist={booking.artists}  />
     )
 })
 }

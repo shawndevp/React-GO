@@ -4,10 +4,12 @@ import axios from "axios";
 function AddToArtists() {
 
   const [isAdmin, setIsAdmin] = useState(false);
-  const username = localStorage.getItem("username");
+
   
   useEffect ( ()=>{
-    if(username!=undefined){
+    const username = localStorage.getItem("username");
+    if(username!==null){
+      
     const fetchRole = async()=>{
       const response = await axios.get(`http://localhost:1337/users?username=${username}`)
       setIsAdmin(response.data[0].isAdmin)
@@ -48,8 +50,6 @@ function handleOnSubmit(e) {
         description:formValues.description
 
     }).then( (res)=> {
-        console.log(res.data)
-
         const data = new FormData();
         data.append("files", fileData)
 
@@ -60,13 +60,10 @@ function handleOnSubmit(e) {
         data.append("field", "img")
 
         axios.post("http://localhost:1337/upload",data)
-        .then( (image)=> console.log(image))
-        
     })
     .catch( (succ)=> {
       setSuccess(succ.request.statusText())
   })
-    
     .catch( (err)=> {
         console.log(err)
     })
@@ -87,7 +84,7 @@ function handleOnSubmit(e) {
                 <div className="text-gray-800 text-2xl flex justify-center border-b-2 py-2 mb-4">
                   Add Artists
                 </div>
-                <div className="text-red-700">{/* error */}</div>
+                <div className="text-red-700"></div>
                 <div className="text-red-700">{success}</div>
                 <div className="mb-4"><br/>
                   <label

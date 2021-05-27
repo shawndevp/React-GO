@@ -12,7 +12,7 @@ function Artists({ name, price, description, img }) {
             {" "}
             <img
               src={`http://localhost:1337${img.formats.small.url}`}
-              alt="some image from database"
+              alt="some pic from database"
             />
           </div>
           <div className="w-2/3 p-4">

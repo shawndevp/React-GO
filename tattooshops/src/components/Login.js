@@ -14,7 +14,6 @@ function Login() {
 
   const [formValues, setFormValues] = useState(initialValues);
   const [error, setError] = useState("");
-  //const [authenticated, setAuthenticated] = useState(false);
   const [username, setUsername] = useState("");
   const [jwt, setJwt] = useState();
   const history = useHistory();
@@ -25,7 +24,6 @@ function Login() {
     identifier: formValues.email,
     password: formValues.password,
   }).then(response => {
-    // Handle success.
     console.log('Well done!');
     console.log('User profile', response.data.user);
     console.log('User token', response.data.jwt);
@@ -37,7 +35,6 @@ function Login() {
 
     console.log("user data", response.data);
     setUsername(response.data.user.username)
-    //setAuthenticated(true);
 
   }).catch((err)=> {
        console.log(err.response);

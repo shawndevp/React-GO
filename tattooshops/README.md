@@ -68,3 +68,16 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## ADDING NEW ARTISTS THROUGH WEBSITE
+
+To be able to add artists you will need to be admin
+To Fix that go to strapi
+Then users
+Then choose one user you want to be able to add artists.
+Change IsAdmin to -> ON
+Go to the website and add following
+http://localhost:3000/addtoartists
+Add your new artists. 
+
+Those who are not enablad as "IsAdmin" Will not be able to add new artist to the website. 
