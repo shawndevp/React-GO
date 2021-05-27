@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Modal from "react-modal";
 import axios from "axios";
 
-function ModalComponent({artistId,}) {
+function ModalComponent({name}) {
 
     const customStyles = {
         content: {
@@ -18,21 +18,25 @@ function ModalComponent({artistId,}) {
       const initialValues = {
         name: "",
         time: "",
-        mobile: null,
+        mobile: "",
       };
     
       const [modalIsOpen, setIsOpen] = useState(false);
       const [formValues, setFormValues] = useState(initialValues);
       const [bookedArtist, setBookedArtist] = useState();
+      const [artistId, setArtistId] = useState();
       const [userId] = useState(localStorage.getItem("userId"));
       const [token] = useState(localStorage.getItem("jwt"))
 
-     /*  useEffect( ()=> {
-        const userId = localStorage.getItem("userId")
-        //console.log(userId)
-        setUserId(userId)
-      }, []) */
-
+      useEffect (()=> {
+        if(modalIsOpen === true) {
+        const fetchArtist = async()=>{
+        const response = await axios.get(`http://localhost:1337/artists?name=${bookedArtist}`)
+        setArtistId(response.data[0].id)
+        }
+        fetchArtist()
+        }
+        },[openModal])
     
       function openModal(e) {
         setBookedArtist(e.target.parentNode.previousSibling.previousSibling.previousSibling.innerHTML)  
@@ -54,7 +58,8 @@ function ModalComponent({artistId,}) {
           name:formValues.name,
           time:formValues.time,
           mobile:Number(formValues.mobile),
-          users_permissions_user:userId
+          users_permissions_user:userId,
+          artist: artistId
         },
         {
           headers: {

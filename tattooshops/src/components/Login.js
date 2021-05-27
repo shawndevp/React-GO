@@ -10,6 +10,8 @@ function Login() {
       password:""
   }
 
+  
+
   const [formValues, setFormValues] = useState(initialValues);
   const [error, setError] = useState("");
   //const [authenticated, setAuthenticated] = useState(false);
@@ -30,7 +32,8 @@ function Login() {
     localStorage.setItem("jwt", response.data.jwt);
     localStorage.setItem("userId", response.data.user.id)
     localStorage.setItem("username", response.data.user.username)
-    history.push("/Artists")
+    history.push("/")
+    window.location.reload()
 
     console.log("user data", response.data);
     setUsername(response.data.user.username)
