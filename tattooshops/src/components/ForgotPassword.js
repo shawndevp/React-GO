@@ -1,7 +1,22 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import fireStore from "./FirebaseConfig"
+import dotenv from 'dotenv'
+dotenv.config();
 
 function ForgotPassword() {
+
+  const [firebaseData, setfirebaseData] = useState([]);
+
+  useEffect( ()=> {
+    const fetchData = async()=> {
+     const res = await fireStore.collection("test").doc("wqyTvUbsudxCDjETUM0p").get();
+
+     setfirebaseData(res.data([0]))
+     console.log(res.data([0]))
+    }
+    fetchData();
+  },[])
 
 const initialValues = {
     email:""
@@ -31,6 +46,8 @@ function handleOnChange(e) {
 
     return (
         <>
+
+        {/* {firebaseData} */}
         <div className="w-full">
   <div className="h-2 bg-indigo"></div>
     <div className="flex items-center justify-center h-screen">
