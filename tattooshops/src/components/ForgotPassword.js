@@ -43,11 +43,24 @@ function handleOnChange(e) {
     });
     }
     
+    function submitFirebaseData() {
+      fireStore.collection("test").add({
+        name:"Detta är ett testdata som ska in i firebase"
+    })
+    .then((docRef) => {
+        console.log("Document written with ID: ", docRef.id);
+        console.log("Document written with ID: ", docRef);
+    })
+    .catch((error) => {
+        console.error("Error adding document: ", error);
+    });
+    }
 
     return (
         <>
 
         {/* {firebaseData} */}
+        <button className="text-green-700" onClick={submitFirebaseData}>Mata in i firebase</button>
         <div className="w-full">
   <div className="h-2 bg-indigo"></div>
     <div className="flex items-center justify-center h-screen">

@@ -34,7 +34,7 @@ function Bookings() {
             {bookings.map( (booking)=>{
 
 return(
-<BookingsList key={booking.id} name={booking.name} time={booking.time} mobile={booking.mobile} artist={booking.artists}  />
+<BookingsList key={booking.id} name={booking.name} time={booking.time} mobile={booking.mobile} artist={booking.artists} price={100}  />
     )
 })
 }
