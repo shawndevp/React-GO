@@ -1,8 +1,10 @@
 import React from "react";
 import { loadStripe } from '@stripe/stripe-js';
 import axios from "axios";
-const stripePromise = loadStripe('pk_test_51Ix6RuFbKny5eUEqNL77wTMwNWuRsFcbZJgYLssMMvNLzNLz7kD00yVIrNUSG8BhYSdnkCiz5ZKQhbq06PzhfqNA00vs3jabgN');
-
+import dotenv from "dotenv";
+dotenv.config()
+const stripePromise = loadStripe(process.env.REACT_APP_PK);
+console.log(process.env.REACT_APP_PK)
 
 
 function BookingsList({ name, time, mobile, artists, price }) {
