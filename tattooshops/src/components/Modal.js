@@ -29,7 +29,7 @@ function ModalComponent() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [deleteIsOpen, setDeleteOpen] = useState(false);
   const [editIsOpen, setEditOpen] = useState(false);
-  const [editArtistValue, setEditArtistValue] = useState(editValues);
+  const [editArtistValue, setEditValue] = useState(editValues);
   const [formValues, setFormValues] = useState(initialValues);
   const [bookedArtist, setBookedArtist] = useState();
   const [artistId, setArtistId] = useState();
@@ -76,7 +76,7 @@ function ModalComponent() {
       e.target.parentNode.previousSibling.previousSibling.previousSibling
         .innerHTML
     );
-    setDeleteOpen(true);
+    setEditOpen(true);
   }
   
   function closeModal() {
@@ -88,7 +88,7 @@ function ModalComponent() {
   }
 
   function closeEditModal() {
-    setDeleteOpen(false);
+    setEditOpen(false);
   }
 
   function deleteArtist() {
@@ -137,7 +137,7 @@ function ModalComponent() {
   }
 
   function onHandleChangeEdit(e) {
-    setFormValues({ ...editValues, [e.target.name]: e.target.value });
+    setEditValue({ ...editArtistValue, [e.target.name]: e.target.value });
   }
 
   async function onHandleSubmit(e) {
@@ -166,7 +166,7 @@ function ModalComponent() {
       {jwt ? (
         <>
           <button
-            onClick={openModal}
+            onClick={openEditModal}
             className="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded"
           >
             Edit
@@ -208,7 +208,6 @@ function ModalComponent() {
         <form onSubmit={onHandleSubmit}>
           <input
             className="placeholder-gray-500 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            placeholder="yourname"
             type="text"
             name="name"
             value={editArtistValue.name}
@@ -217,7 +216,6 @@ function ModalComponent() {
           />
           <input
             className="placeholder-gray-500 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            placeholder="description"
             type="text"
             name="description"
             value={editArtistValue.description}
@@ -226,7 +224,6 @@ function ModalComponent() {
           />
           <input
             className="placeholder-gray-500 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            placeholder="New Price"
             type="number"
             name="price"
             value={editArtistValue.price}
@@ -236,7 +233,7 @@ function ModalComponent() {
           <br />
           <br />
           <div className="flex justify-end text-green-500">
-            <button type="submit">Send</button>
+            <button type="submit" onClick={editArtist}>Send</button>
           </div>
         </form> 
       </Modal>
