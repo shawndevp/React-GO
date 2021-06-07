@@ -60,9 +60,10 @@ function handleOnSubmit(e) {
         data.append("field", "img")
 
         axios.post("http://localhost:1337/upload",data)
+        window.location.reload()
     })
     .catch( (succ)=> {
-      setSuccess(succ.request.statusText())
+       setSuccess(succ.request.statusText())
   })
     .catch( (err)=> {
         console.log(err)

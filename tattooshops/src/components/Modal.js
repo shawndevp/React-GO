@@ -198,7 +198,7 @@ function ModalComponent() {
           <button onClick={closeModal}>CLOSE</button>
         </div>
         <br />
-        <div>You're currently about to edit following...</div>
+        <div>You're currently about to edit following... Please fill in all fields when editing</div>
         <br />
         <div className="flex justify-around text-black font-black">
           <h1>Name</h1>
