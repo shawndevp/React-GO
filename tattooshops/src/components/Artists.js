@@ -2,7 +2,6 @@ import React from "react";
 import ModalComponent from "./Modal";
 
 function Artists({ name, price, description, img }) {
-  
 
   return (
     <>

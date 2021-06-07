@@ -7,14 +7,14 @@ const stripePromise = loadStripe(process.env.REACT_APP_PK);
 console.log(process.env.REACT_APP_PK)
 
 
-function BookingsList({ name, time, mobile, artists, price }) {
+function BookingsList({ name, time, mobile, artists, price, quantity }) {
 
     const handleClick = async (event) => {
         // Get Stripe.js instance
         const stripe = await stripePromise;
     
         // Call your backend to create the Checkout Session
-        const response = await axios.post("http://localhost:4242/create-checkout-session", {name:name, price:price})
+        const response = await axios.post("http://localhost:4242/create-checkout-session", {name:name, price:price, quantity:quantity})
         /* ('/create-checkout-session', { method: 'POST' }); */
         console.log(response)
         const sessionId = response.data.id
