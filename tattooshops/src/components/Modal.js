@@ -43,6 +43,7 @@ function ModalComponent() {
         const response = await axios.get(
           `http://localhost:1337/artists?name=${bookedArtist}`
         );
+        console.log(response)
         setArtistId(response.data[0].id);
       };
       fetchArtist();

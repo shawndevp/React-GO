@@ -8,6 +8,7 @@ import AddtoArtists from "./AddToArtists";
 import ForgotPassword from "./ForgotPassword";
 import ResetPassword from "./ResetPassword";
 import Bookings from "./Bookings";
+import Profile from "./Profile";
 
 import {
     BrowserRouter as Router,
@@ -28,6 +29,7 @@ import {
         <Route path="/resetpassword" exact component={ResetPassword}/>
         <Route path="/forgotpassword" exact component={ForgotPassword}/>
         <Route path="/Bookings" exact component={Bookings}/>
+        <Route path="/Profile" exact component={Profile}/>
         
         </Router>
 
